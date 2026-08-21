@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Employee Registration</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background:
+                radial-gradient(circle at 15% 20%, rgba(0, 229, 255, 0.12), transparent 30%),
+                radial-gradient(circle at 85% 80%, rgba(168, 85, 247, 0.15), transparent 30%),
+                #050505;
+
+            color: white;
+            padding: 30px;
+        }
+
+        /* Main Card */
+
+        .container {
+            width: 460px;
+            padding: 40px;
+
+            background: rgba(20, 20, 20, 0.92);
+
+            border: 1px solid rgba(255, 255, 255, 0.1);
+
+            border-radius: 24px;
+
+            box-shadow:
+                0 0 40px rgba(0, 229, 255, 0.08),
+                0 0 80px rgba(168, 85, 247, 0.08);
+
+            backdrop-filter: blur(15px);
+        }
+
+        /* Header */
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .icon {
+            width: 65px;
+            height: 65px;
+
+            margin: 0 auto 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: linear-gradient(
+                135deg,
+                #00e5ff,
+                #7c3aed
+            );
+
+            font-size: 30px;
+
+            box-shadow:
+                0 0 20px rgba(0, 229, 255, 0.35),
+                0 0 35px rgba(124, 58, 237, 0.25);
+        }
+
+        .header h1 {
+            font-size: 30px;
+            font-weight: 700;
+
+            background: linear-gradient(
+                90deg,
+                #00e5ff,
+                #a855f7,
+                #ff4ecd
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #999;
+            font-size: 14px;
+        }
+
+        /* Form */
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            color: #d4d4d4;
+        }
+
+        input,
+        select,
+        textarea {
+
+            width: 100%;
+
+            padding: 13px 15px;
+
+            background: #0c0c0c;
+
+            color: white;
+
+            border: 1px solid #292929;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+
+            outline: none;
+
+            transition: all 0.3s ease;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #666;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+
+            border-color: #00e5ff;
+
+            box-shadow:
+                0 0 0 3px rgba(0, 229, 255, 0.08),
+                0 0 15px rgba(0, 229, 255, 0.12);
+        }
+
+        select {
+            cursor: pointer;
+        }
+
+        select option {
+            background: #111;
+            color: white;
+        }
+
+        textarea {
+            height: 90px;
+            resize: none;
+        }
+
+        /* Button */
+
+        .btn {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: linear-gradient(
+                90deg,
+                #00bcd4,
+                #7c3aed,
+                #ec4899
+            );
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.5px;
+
+            cursor: pointer;
+
+            transition: all 0.3s ease;
+
+            margin-top: 5px;
+        }
+
+        .btn:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 25px rgba(124, 58, 237, 0.35),
+                0 0 20px rgba(0, 229, 255, 0.15);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        /* Footer */
+
+        .footer {
+
+            text-align: center;
+
+            margin-top: 25px;
+
+            padding-top: 18px;
+
+            border-top: 1px solid #222;
+
+            color: #666;
+
+            font-size: 12px;
+        }
+
+        .footer span {
+            color: #00e5ff;
+        }
+
+        /* Responsive */
+
+        @media (max-width: 520px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                width: 100%;
+                padding: 30px 22px;
+            }
+
+            .header h1 {
+                font-size: 26px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+
+            <div class="icon">
+                👤
+            </div>
+
+            <h1>Employee Registration</h1>
+
+            <p>Create your employee profile</p>
+
+        </div>
+
+
+        <form action="callingRegisterServlet" method="post">
+
+
+            <div class="form-group">
+
+                <label for="name">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your full name"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email address"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="department">
+                    Department
+                </label>
+
+                <select
+                    id="department"
+                    name="department"
+                    required>
+
+                    <option value="">
+                        Select your department
+                    </option>
+
+                    <option value="IT">
+                        IT & Software
+                    </option>
+
+                    <option value="HR">
+                        Human Resources
+                    </option>
+
+                    <option value="Finance">
+                        Finance
+                    </option>
+
+                    <option value="Marketing">
+                        Marketing
+                    </option>
+
+                    <option value="Sales">
+                        Sales
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="address">
+                    Address
+                </label>
+
+                <textarea
+                    id="address"
+                    name="address"
+                    placeholder="Enter your address"
+                    required></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="btn">
+
+                Register Employee
+
+            </button>
+
+
+        </form>
+
+
+        <div class="footer">
+
+            Employee Management System
+            <br>
+
+            <span>Secure • Simple • Professional</span>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

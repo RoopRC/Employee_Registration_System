@@ -1,0 +1,23 @@
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Build files
+build/
+bin/
+target/
+
+# Compiled Java files
+*.class
+
+# Tomcat
+work/
+temp/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment / local configuration
+.env
